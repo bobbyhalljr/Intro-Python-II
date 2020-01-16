@@ -34,25 +34,8 @@ room['overlook'].s_to = room['foyer']
 room['narrow'].w_to = room['foyer']
 room['narrow'].n_to = room['treasure']
 room['treasure'].s_to = room['narrow']
-
-# player name
-player_name = input('what is your name? -> ')
-
-# Make a new player object that is currently in the 'outside' room.
-player = Player(player_name, room['outside'])
-
- # choices
-choices = ["n", "s", "e", "w", "q"]
-
-# loop 
-while choices != 'q':
-    # player_dir
-    player_dir = input('where would you like to go? (n, s, e, w or q to quit)--> ')
-    
-    # ask player for name
-    print(player_name)
+   
 # * Prints the current room name
-    print(player)
 # * Prints the current description (the textwrap module might be useful here).
 # * Waits for user input and decides what to do.
 #
@@ -60,3 +43,26 @@ while choices != 'q':
 # Print an error message if the movement isn't allowed.
 #
 # If the user enters "q", quit the game.
+
+# create a player
+# ask player for name
+player = Player(input("what is your name? "), room['outside'])
+print(player.current_room)
+
+# allowed directions
+directions = ["n", "s", "e", "w"]
+
+# create a basic REPL 
+while True:
+    #read
+    user = input(f"type: 'n' = north, 's' = south, 'e' = east , 'w' = west or 'q' to exit. \n {player.name} where would you like to go? ")
+    # make sure user inputs n, s, e, w or q
+    if user in directions:
+        # player travels in inputed direction
+        player.traveling(user)
+    elif user == 'q':
+        # quit game
+        print('Thank you for playing, see you next time!')
+        exit()
+    else:
+        print('command NOT allowed, please try again')
