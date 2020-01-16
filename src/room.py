@@ -17,6 +17,7 @@ class Room:
         string += f"\n*****************\n"
         string += f"\n{self.name}\n"
         string += f"\n{self.description}\n" 
+        string += f"\n The items in the room are: {self.items}\n" 
         string += f"\n{self.get_exit_string()}\n" 
         return string
 
