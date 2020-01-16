@@ -1,24 +1,26 @@
+# imports
 from room import Room
+from player import Player
 
 # Declare all the rooms
 
 room = {
-    'outside':  Room("Outside Cave Entrance",
-                     "North of you, the cave mount beckons"),
+    'outside': Room("Outside Cave Entrance",
+    "North of you, the cave mount beckons"),
 
-    'foyer':    Room("Foyer", """Dim light filters in from the south. Dusty
-passages run north and east."""),
+    'foyer': Room("Foyer", """Dim light filters in from the south. Dusty
+    passages run north and east."""),
 
     'overlook': Room("Grand Overlook", """A steep cliff appears before you, falling
-into the darkness. Ahead to the north, a light flickers in
-the distance, but there is no way across the chasm."""),
+    into the darkness. Ahead to the north, a light flickers in
+    the distance, but there is no way across the chasm."""),
 
-    'narrow':   Room("Narrow Passage", """The narrow passage bends here from west
-to north. The smell of gold permeates the air."""),
+    'narrow': Room("Narrow Passage", """The narrow passage bends here from west
+    to north. The smell of gold permeates the air."""),
 
     'treasure': Room("Treasure Chamber", """You've found the long-lost treasure
-chamber! Sadly, it has already been completely emptied by
-earlier adventurers. The only exit is to the south."""),
+    chamber! Sadly, it has already been completely emptied by
+    earlier adventurers. The only exit is to the south."""),
 }
 
 
@@ -33,15 +35,24 @@ room['narrow'].w_to = room['foyer']
 room['narrow'].n_to = room['treasure']
 room['treasure'].s_to = room['narrow']
 
-#
-# Main
-#
+# player name
+player_name = input('what is your name? -> ')
 
 # Make a new player object that is currently in the 'outside' room.
+player = Player(player_name, room['outside'])
 
-# Write a loop that:
-#
+ # choices
+choices = ["n", "s", "e", "w", "q"]
+
+# loop 
+while choices != 'q':
+    # player_dir
+    player_dir = input('where would you like to go? (n, s, e, w or q to quit)--> ')
+    
+    # ask player for name
+    print(player_name)
 # * Prints the current room name
+    print(player)
 # * Prints the current description (the textwrap module might be useful here).
 # * Waits for user input and decides what to do.
 #
