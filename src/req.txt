@@ -1,0 +1,16 @@
+Requirements:
+
+# Add REPL that accepts directional commands (read, eval, print, loop)
+    # after each move, print name and description of the current room.
+    # valid commands are (n, s, e, w)
+    # print error if player tries to move where there is no room
+
+# put room class in room.py based on adv.py
+    # each room has a name and description
+    # the room should have: n_to, s_to, e_to, w_to attributes
+
+# put player class in player.py
+    # players have a name and current room attributes
+
+
+
